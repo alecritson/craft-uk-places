@@ -27,3 +27,23 @@ When using this fieldtype in your templates, you will be given an instance of `E
 - `region` - The region the place is in
 - `country` - The country of the place
 - `countryCode` - A code representation of the country e.g `WLS`, `ENG`, `SCT`
+
+## Get a big old list in your twig templates, ready to use with the craft forms macro
+
+Parameters you can use are:
+- `town` - Get an array of towns
+- `region` - Get an array of regions
+
+For the second arguments you can pass a comma seperated string for either if you only want to display certion regions or countries.
+
+[You can see a complete list of available filters here](https://github.com/alecritson/craft-uk-places/wiki/Place-filtering)
+
+```twig
+{% set places = craft.ukplaces.get(
+	'town',
+	{
+		regions: 'Essex, Surrey',
+		countries: 'England'
+	}
+) %}
+```
