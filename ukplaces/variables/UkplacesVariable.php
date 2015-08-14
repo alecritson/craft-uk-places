@@ -1,7 +1,7 @@
 <?php
 namespace Craft;
 
-class EnglishplacesVariable
+class UkplacesVariable
 {
 
     public function get($column, $filters = array())
