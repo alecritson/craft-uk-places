@@ -1,0 +1,16 @@
+{% import '_includes/forms' as forms %}
+
+{% set options = craft.ukplaces.get(
+	settings.column,
+	{
+		regions: settings.regions,
+		countries: settings.countries
+	}
+) %}
+
+{{ forms.selectField({
+	options : options,
+	name: name,
+	value : value
+})}}
+

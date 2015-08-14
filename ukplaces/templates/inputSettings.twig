@@ -1,0 +1,30 @@
+{% import '_includes/forms' as forms %}
+
+{{ forms.selectField({
+	label: 'Give me a list of',
+	name: 'column',
+	value : settings.column,
+	options : [
+		{label : 'Towns', value: 'town'},
+		{label : 'Regions', value: 'region'},
+		{label : 'Countries', value: 'country'}
+	]
+})}}
+
+<h3>Filter options</h3>
+<p>You should only need to input into one of these, if any</p>
+
+{{ forms.textField({
+	label: 'Only show these regions',
+	name: 'regions',
+	instructions : 'Limit the dropdown to these regions, comma seperated list. <a href="#">See this list of available regions</a>',
+	value: settings.regions
+})}}
+
+{{ forms.textField({
+	label: 'Only show these countries',
+	name: 'countries',
+	instructions : 'Limit the dropdown to these countries, comma seperated list. <a href="#">See this list of available countries</a>',
+	value: settings.countries
+})}}
+
