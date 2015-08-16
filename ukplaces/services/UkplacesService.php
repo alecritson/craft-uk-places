@@ -38,7 +38,7 @@ class UkplacesService extends BaseApplicationComponent
 
     public function getTowns($heading = 'town') {
 
-      $query = $this->query->select("id, {$heading}, region");
+      $query = craft()->db->createCommand()->from('uk_places')->select("id, {$heading}, region");
 
       if($this->filters)
       {
@@ -89,7 +89,7 @@ class UkplacesService extends BaseApplicationComponent
 
     public function getRegions()
     {
-      $query = $this->query->select("id, region, country");
+      $query = craft()->db->createCommand()->from('uk_places')->select("id, region, country");
 
       if($this->filters)
       {
@@ -114,6 +114,7 @@ class UkplacesService extends BaseApplicationComponent
           }
       } 
 
+      $options = [];
       foreach($results as $key => $values)
       {
           $options[] = array('optgroup' => $key);
@@ -132,5 +133,12 @@ class UkplacesService extends BaseApplicationComponent
           return $this->model->populateModel($record);
       }
       return null;
+    }
+
+    public function poop($nugget)
+    {
+      echo "<pre>";
+      print_r($nugget);
+      die();
     }
 }
